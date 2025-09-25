@@ -6,7 +6,6 @@ import { Markets } from "./components/markets";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
-import { DeployGuide } from "./components/deploy-guide";
 
 export default function App() {
   return (
@@ -28,9 +27,7 @@ export default function App() {
                 Instrucciones para personalizar y publicar su sitio web.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <DeployGuide />
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
           </div>
         </section>
       </main>
