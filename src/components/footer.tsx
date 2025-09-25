@@ -50,11 +50,11 @@ export const Footer = () => {
               para proteger lo que más importa.
             </p>
             <p className="text-gray-400">
-              <strong>Email:</strong> contacto@proingenier.com
+              <strong>Email:</strong> info@proingenier.com
               <br />
-              <strong>Teléfono:</strong> +593 1234 5678
+              <strong>Teléfono:</strong> +593 94 19 2734
               <br />
-              <strong>Dirección:</strong> Av. Principal 1234, Ciudad
+              <strong>Dirección:</strong> Av. 6 entre calle 13 y 14, Manta
             </p>
           </div>
 

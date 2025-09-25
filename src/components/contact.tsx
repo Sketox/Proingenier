@@ -7,7 +7,7 @@ export const Contact = () => {
   const contactInfo = [
     {
       title: "Dirección",
-      value: "Av. Principal 1234, Ciudad",
+      value: "Av. 6 entre calle 13 y 14, Manta",
       icon: "lucide:map-pin",
     },
     {
@@ -17,7 +17,7 @@ export const Contact = () => {
     },
     {
       title: "Teléfono",
-      value: "+593 1234 5678",
+      value: "+593 94 19 2734",
       icon: "lucide:phone",
     },
   ];
@@ -105,7 +105,7 @@ export const Contact = () => {
               <Card className="border border-gray-100 shadow-md overflow-hidden">
                 <CardBody className="p-0">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15562.341411717447!2d-80.73392714603268!3d-0.942573008392327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sec!4v1758785226095!5m2!1ses-419!2sec"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.5822824422744!2d-80.72747282514828!3d-0.9453174353482677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902be134711f65f7%3A0x859c9ab049ac5e15!2sAv.%206%2C%20Manta!5e1!3m2!1ses-419!2sec!4v1758811059330!5m2!1ses-419!2sec"
                     width="100%"
                     height="250"
                     style={{ border: 0 }}
