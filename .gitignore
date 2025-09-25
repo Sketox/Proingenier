@@ -49,3 +49,8 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# --- Otros ---
+!public/favicon.ico
+!public/images/
+!public/images/**
