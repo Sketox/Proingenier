@@ -1,9 +1,19 @@
 import React from "react";
-import { Navbar as HeroNavbar, NavbarContent, NavbarItem, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Button, Link } from "@heroui/react";
+import {
+  Navbar as HeroNavbar,
+  NavbarContent,
+  NavbarItem,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Button,
+  Link,
+} from "@heroui/react";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  
+
   const menuItems = [
     { name: "Servicios", href: "#servicios" },
     { name: "Mercados", href: "#mercados" },
@@ -12,7 +22,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <HeroNavbar 
+    <HeroNavbar
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       shouldHideOnScroll
@@ -26,12 +36,16 @@ export const Navbar = () => {
         />
         <NavbarBrand>
           <div className="flex items-center gap-2">
-            <div 
-              className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-white font-bold"
-            >
-              P
+            <div className="h-10 w-10 rounded-full bg-white ring-2 ring-primary/30 shadow-sm overflow-hidden flex items-center justify-center">
+              <img
+                src="/images/iconoproingenier.jpg"
+                alt="Proingenier"
+                className="h-9 w-9 object-contain"
+              />
             </div>
-            <p className="font-bold text-inherit text-primary hidden sm:block">PROINGENIER</p>
+            <p className="font-bold text-inherit text-primary hidden sm:block">
+              Proingenier
+            </p>
           </div>
         </NavbarBrand>
       </NavbarContent>
@@ -39,8 +53,8 @@ export const Navbar = () => {
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.name}>
-            <Link 
-              color="foreground" 
+            <Link
+              color="foreground"
               href={item.href}
               className="font-medium hover:text-primary transition-colors"
             >
@@ -49,13 +63,13 @@ export const Navbar = () => {
           </NavbarItem>
         ))}
       </NavbarContent>
-      
+
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button 
-            as={Link} 
-            color="primary" 
-            href="#contacto" 
+          <Button
+            as={Link}
+            color="primary"
+            href="#contacto"
             variant="solid"
             className="font-medium"
           >
@@ -63,7 +77,7 @@ export const Navbar = () => {
           </Button>
         </NavbarItem>
       </NavbarContent>
-      
+
       <NavbarMenu className="pt-6">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.name}-${index}`}>

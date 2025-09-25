@@ -41,10 +41,10 @@ export const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold text-primary mb-4">
-              Sobre PROINGENIER
+              Sobre Proingenier
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              En PROINGENIER nos especializamos en el diseño, implementación y
+              En Proingenier nos especializamos en el diseño, implementación y
               mantenimiento de proyectos de ingeniería en energía solar y
               sistemas de seguridad para empresas e instituciones de diversos
               sectores.

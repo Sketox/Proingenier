@@ -39,9 +39,13 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-3">
-                P
+            <div className="flex items-center gap-3 sm:gap-4 mb-6">
+              <div className="h-10 w-10 rounded-full bg-white ring-2 ring-primary/30 shadow-sm overflow-hidden flex items-center justify-center shrink-0">
+                <img
+                  src="/images/iconoproingenier.jpg"
+                  alt="Proingenier"
+                  className="h-9 w-9 object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold">PROINGENIER</h3>
             </div>
@@ -81,7 +85,7 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} PROINGENIER. Todos los derechos reservados.
+            © {currentYear} Proingenier. Todos los derechos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

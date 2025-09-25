@@ -17,12 +17,6 @@ export default function App() {
         <Markets />
         <About />
         <Contact />
-        <section id="guias" className="section-padding bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12"></div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
