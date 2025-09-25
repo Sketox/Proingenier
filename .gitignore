@@ -1,0 +1,51 @@
+# --- Node / paquetes ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# --- Builds / output ---
+dist/
+build/
+.out/
+.next/
+out/
+dist-ssr/
+.storybook-out/
+storybook-static/
+
+# --- Caches ---
+.cache/
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.next/cache
+.tailwind/
+.tailwindcss/
+
+# --- Vercel local link ---
+.vercel/
+
+# --- Tests / e2e ---
+coverage/
+test-results/
+.playwright/
+cypress/screenshots/
+cypress/videos/
+
+# --- Entornos (NO subir secretos) ---
+.env
+.env.*
+!.env.example
+!.env.template
+
+# --- Sistema / editores ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

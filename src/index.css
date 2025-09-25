@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.hero-gradient {
+  background: linear-gradient(90deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0.7) 100%);
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Estilos adicionales para mejorar la visualización */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
