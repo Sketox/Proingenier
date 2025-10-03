@@ -17,7 +17,7 @@ export const Contact = () => {
     },
     {
       title: "Teléfono",
-      value: "+593 94 19 2734",
+      value: "+593 99 419 2734",
       icon: "lucide:phone",
     },
   ];

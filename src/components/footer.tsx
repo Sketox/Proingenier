@@ -56,7 +56,7 @@ export const Footer = () => {
             <p className="text-gray-400">
               <strong>Email:</strong> info@proingenier.com
               <br />
-              <strong>Teléfono:</strong> +593 94 19 2734
+              <strong>Teléfono:</strong> +593 99 419 2734
               <br />
               <strong>Dirección:</strong> Av. 6 entre calle 13 y 14, Manta
             </p>
