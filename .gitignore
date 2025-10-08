@@ -54,3 +54,5 @@ Thumbs.db
 !public/favicon.ico
 !public/images/
 !public/images/**
+.vercel
+.env*.local

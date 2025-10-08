@@ -4,23 +4,83 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 export const Contact = () => {
+  const [form, setForm] = React.useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    message: "",
+    companyWebsite: "", // honeypot (invisible)
+  });
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState<null | "ok" | "error">(null);
+  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
+
   const contactInfo = [
     {
       title: "Dirección",
       value: "Av. 6 entre calle 13 y 14, Manta",
       icon: "lucide:map-pin",
     },
-    {
-      title: "Email",
-      value: "info@proingenier.com",
-      icon: "lucide:mail",
-    },
-    {
-      title: "Teléfono",
-      value: "+593 99 419 2734",
-      icon: "lucide:phone",
-    },
+    { title: "Email", value: "info@proingenier.com", icon: "lucide:mail" },
+    { title: "Teléfono", value: "+593 99 419 2734", icon: "lucide:phone" },
   ];
+
+  const onChange =
+    (key: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setForm((s) => ({ ...s, [key]: e.target.value }));
+    };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
+    setErrorMsg(null);
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setErrorMsg("Por favor complete Nombre, Email y Mensaje.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const text = await res.text(); // <- lee como texto SIEMPRE
+      let data: any = null;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        /* cuerpo no-JSON */
+      }
+
+      if (!res.ok || !data?.ok) {
+        throw new Error(
+          data?.error || `HTTP ${res.status} - ${text?.slice(0, 120)}`
+        );
+      }
+
+      setStatus("ok");
+      setForm({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        message: "",
+        companyWebsite: "",
+      });
+    } catch (err: any) {
+      console.error(err);
+      setStatus("error");
+      setErrorMsg(err?.message || "No se pudo enviar el mensaje.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section id="contacto" className="section-padding">
@@ -47,17 +107,33 @@ export const Contact = () => {
                   Envíenos un mensaje
                 </h3>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={onSubmit}>
+                  {/* HONEYPOT (invisible para humanos) */}
+                  <input
+                    type="text"
+                    name="companyWebsite"
+                    autoComplete="off"
+                    value={form.companyWebsite}
+                    onChange={onChange("companyWebsite")}
+                    className="hidden"
+                    tabIndex={-1}
+                  />
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <Input
                       label="Nombre"
                       placeholder="Ingrese su nombre"
                       variant="bordered"
+                      value={form.name}
+                      onChange={onChange("name")}
+                      isRequired
                     />
                     <Input
                       label="Empresa"
                       placeholder="Nombre de su empresa"
                       variant="bordered"
+                      value={form.company}
+                      onChange={onChange("company")}
                     />
                   </div>
 
@@ -67,12 +143,17 @@ export const Contact = () => {
                       placeholder="info@ejemplo.com"
                       type="email"
                       variant="bordered"
+                      value={form.email}
+                      onChange={onChange("email")}
+                      isRequired
                     />
                     <Input
                       label="Teléfono"
                       placeholder="+593 1234 5678"
                       type="tel"
                       variant="bordered"
+                      value={form.phone}
+                      onChange={onChange("phone")}
                     />
                   </div>
 
@@ -81,15 +162,34 @@ export const Contact = () => {
                     placeholder="¿En qué podemos ayudarle?"
                     variant="bordered"
                     minRows={4}
+                    value={form.message}
+                    onChange={onChange("message")}
+                    isRequired
                   />
 
-                  <Button
-                    color="primary"
-                    className="w-full sm:w-auto"
-                    size="lg"
-                  >
-                    Enviar Mensaje
-                  </Button>
+                  <div className="flex flex-col gap-2">
+                    <Button
+                      color="primary"
+                      className="w-full sm:w-auto"
+                      size="lg"
+                      type="submit"
+                      isDisabled={loading}
+                      isLoading={loading}
+                    >
+                      {loading ? "Enviando..." : "Enviar Mensaje"}
+                    </Button>
+
+                    {status === "ok" && (
+                      <span className="text-green-600 text-sm">
+                        ¡Gracias! Tu mensaje fue enviado correctamente.
+                      </span>
+                    )}
+                    {(status === "error" || errorMsg) && (
+                      <span className="text-red-600 text-sm">
+                        {errorMsg || "No se pudo enviar. Inténtalo nuevamente."}
+                      </span>
+                    )}
+                  </div>
                 </form>
               </CardBody>
             </Card>
